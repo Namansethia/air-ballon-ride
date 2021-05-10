@@ -39,10 +39,13 @@ function draw() {
   else if(keyDown(UP_ARROW)){
     balloon.addAnimation("hotAirBalloon",balloonImage2);
     updatePosition(0,-1)
+   // balloon.scale=balloon.scale-0.01
   }
   else if(keyDown(DOWN_ARROW)){
     balloon.addAnimation("hotAirBalloon",balloonImage2);
     updatePosition(0,1)
+    //balloon.scale=balloon.scale+0.01
+
   }
 
   drawSprites();
@@ -60,14 +63,14 @@ function showError()
 function readPosition(data)
 {
   position=data.val()
-  ballon.x=position.x;
-  ballon.y=position.y;
+  balloon.x=position.x;
+  balloon.y=position.y;
 }
 
 function updatePosition(x,y)
 {
 database.ref('ballon/position').set({
-  'x': position.x+x,
-  'y': position.y+y,
+  'x': balloon.x+x,
+  'y': balloon.y+y,
 })
 }
